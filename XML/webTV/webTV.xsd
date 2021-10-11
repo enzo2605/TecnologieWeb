@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Film id type --> 
+    <xs:simpleType name="filmIDType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Genre type -->
+    <xs:simpleType name="genretype">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Horror"/>
+            <xs:enumeration value="Thriller"/>
+            <xs:enumeration value="Adventure"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Film -->
+    <xs:element name="film"> 
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="time" type="xs:string"/>
+                <xs:element name="year" type="xs:string"/>
+                <xs:element name="language" type="xs:string"/>
+                <xs:element name="genre" type="genretype" />
+            </xs:sequence>
+            <xs:attribute name="id" type="filmIDType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <!-- Films -->
+    <xs:element name="films"> 
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="film" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!--  
+    
+    <xs:element name="tv_series">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="seasons" type="xs:string"/>
+                <xs:element name="year" type="xs:string"/>
+            </xs:sequence> 
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="songs">
+        <xs:complexType>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="time" type="xs:string"/>
+            <xs:element name="artist" type="xs:string"/>
+            <xs:element name="album" type="xs:string"/>
+            <xs:element name="genre" type="xs:string"/>
+        </xs:complexType>
+    </xs:element> 
+    -->
+    <!-- Lista -->
+    <xs:element name="list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="films"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

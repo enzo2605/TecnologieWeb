@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<list>
+    <films>
+        <film id="000001">
+            <name>Il prescelto</name>
+            <time>2 ore</time>
+            <year>2009</year>
+            <language>Italian</language>
+            <genre>Horror</genre>
+        </film>
+        <film>
+            <name>Non aprite quella porta</name>
+            <time>2 ore</time>
+            <year>2009</year>
+            <language>Italian</language>
+            <genre>Buddy</genre>
+        </film>
+    </films>
+</list>
